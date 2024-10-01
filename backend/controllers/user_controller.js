@@ -15,7 +15,6 @@ export const signup = async (req, res) => {
         };
 
         const hashPassword = await bcrypt.hash(password, 10);
-
         const newUser = await new User({
             name,
             email,
@@ -42,6 +41,7 @@ export const login = async(req, res) => {
         if(!user || !isMatch){
             return res.status(400).json({message: "Invalid user or password"});
         }
+
         createTokenAndSaveCookies(user._id, res);
         res.status(201).json({message: "User logged in successfully", user: {
             _id: user._id,
@@ -52,7 +52,6 @@ export const login = async(req, res) => {
         console.log(error);
         res.status(500).json({message: "server error"});
     }
-
 }
 
 export const logout = async(req, res) => {
