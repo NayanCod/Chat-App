@@ -2,10 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+} */
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
 }
 
-.hide-scrollbar:: -webkit-scrollbar{
-  display: none;
+/* For Firefox */
+.hide-scrollbar {
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+/* General rule to allow scrolling */
+.hide-scrollbar {
+  overflow-y: scroll; /* Or 'auto' */
 }
