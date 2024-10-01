@@ -3,7 +3,7 @@
 const Chatuser = () => {
   return (
     <>
-      <div className="px-5 pt-5 pb-3  flex space-x-4 bg-gray-900 hover:bg-gray-600 cursor-pointer duration-200">
+      <div className="px-5 pt-5 pb-3 h-[12vh] flex space-x-4 bg-gray-900 hover:bg-gray-600 cursor-pointer duration-200">
         <div>
           <div className="avatar online">
             <div className="w-14 rounded-full">

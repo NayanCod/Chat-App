@@ -7,15 +7,13 @@
 } */
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Hide scrollbar */
+  display: none;
 }
 
-/* For Firefox */
 .hide-scrollbar {
-  scrollbar-width: none; /* Hide scrollbar */
+  scrollbar-width: none; 
 }
 
-/* General rule to allow scrolling */
 .hide-scrollbar {
-  overflow-y: scroll; /* Or 'auto' */
+  overflow-y: scroll;
 }
