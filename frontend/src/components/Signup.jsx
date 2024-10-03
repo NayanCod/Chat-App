@@ -1,8 +1,11 @@
 // import React from 'react'
 import { useForm } from "react-hook-form"
 import axios from "axios";
+import { useAuth } from "../context/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
+    const {authUser, setAuthUser} = useAuth();
     const {
         register,
         handleSubmit,
@@ -23,12 +26,13 @@ const Signup = () => {
                 password: data.password,
                 confirmPassword: data.confirmPassword,
             };
-            const res = await axios.post("http://localhost:5002/user/signup", userInfo);
+            const res = await axios.post("/api/user/signup", userInfo);
             console.log(res);
             if(res.data){
                 alert("Successfully registered! you can now log in");
             }
             localStorage.setItem("messanger", JSON.stringify(res.data));
+            setAuthUser(res.data);
         } catch (error) {
             console.log(error);
             alert(error.response.data.message);
@@ -112,7 +116,7 @@ const Signup = () => {
                 </span>}
             </div>
             <button className={"text-gray-300 bg-blue-800 w-full text-center py-2 rounded-lg my-4 font-semibold hover:bg-blue-700 duration-200"}>Signup</button>
-            <p>Already have an account? <span className="text-blue-800 hover:underline cursor-pointer">login</span></p>
+            <p>Already have an account? <Link to={"/login"}><span className="text-blue-800 hover:underline cursor-pointer">login</span></Link></p>
 
         </form>
       </div>
