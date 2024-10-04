@@ -8,26 +8,26 @@ export const sendMessage = async(req, res) => {
         const senderId = req.user._id; // current logged in user;
 
         let conversation = await Conversation.findOne({
-            participants: {$all: [senderId, recieverId]}
+            participants: {$all: [senderId, recieverId]},
         })
         if(!conversation){
             conversation = await Conversation.create({
                 participants: [senderId, recieverId],
             });
-            const newMessage = new Message({
-                senderId,
-                recieverId,
-                message,
-            });
-
-            if(newMessage){
-                conversation.messages.push(newMessage._id);
-                res.staus(201).json({message: "Message sent successfully", newMessage});
-            };
-            
-
-            await Promise.all([conversation.save(), newMessage.save()]);
         }
+        const newMessage = new Message({
+            senderId,
+            recieverId,
+            message,
+        });
+
+        if(newMessage){
+            conversation.messages.push(newMessage._id);
+            res.status(201).json({message: "Message sent successfully", newMessage});
+        };
+
+
+        await Promise.all([conversation.save(), newMessage.save()]);
     } catch (error) {
         console.log("Error in sending message controller", error);
         res.status(500).json({message: "Internal server error"});

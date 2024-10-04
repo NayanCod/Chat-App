@@ -1,6 +1,9 @@
 // import React from 'react'
 
+import useConversation from "../../stateManage/useConversation.js";
+
 const Chatuser = () => {
+  const { selectedConversation } = useConversation();
   return (
     <>
       <div className="px-5 pt-5 pb-3 h-[12vh] flex space-x-4 bg-gray-900 hover:bg-gray-600 cursor-pointer duration-200">
@@ -13,7 +16,7 @@ const Chatuser = () => {
         </div>
 
         <div>
-          <h1 className="text-xl">Ankit kumar</h1>
+          <h1 className="text-xl">{selectedConversation?.name}</h1>
           <p className="text-sm">Online</p>
         </div>
       </div>

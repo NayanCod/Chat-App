@@ -7,14 +7,14 @@ const Message = ({message}) => {
   const chatColor = itsMe ? "bg-blue-400" : "";
   return (
     <div className="p-4">
-        <div className="chat chat-start">
-            <div className="chat-bubble chat-bubble-info">{message.message}</div>
-        </div>
         <div className={`chat ${chatName}`}>
+            <div className={`chat-bubble text-white ${chatColor}`}>{message.message}</div>
+        </div>
+        {/* <div className={`chat ${chatName}`}>
             <div className={`chat-bubble text-white ${chatColor}`}>
                 That is never been done in the history of the Jedi. It is insulting!
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }
