@@ -18,14 +18,15 @@ export const sendMessage = async(req, res) => {
                 senderId,
                 recieverId,
                 message,
-            })
+            });
 
             if(newMessage){
                 conversation.messages.push(newMessage._id);
                 res.staus(201).json({message: "Message sent successfully", newMessage});
-            }
+            };
+            
 
-            await Promise.all([conversation.save(), newMessage.save()])
+            await Promise.all([conversation.save(), newMessage.save()]);
         }
     } catch (error) {
         console.log("Error in sending message controller", error);
