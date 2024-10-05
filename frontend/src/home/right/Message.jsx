@@ -10,11 +10,6 @@ const Message = ({message}) => {
         <div className={`chat ${chatName}`}>
             <div className={`chat-bubble text-white ${chatColor}`}>{message.message}</div>
         </div>
-        {/* <div className={`chat ${chatName}`}>
-            <div className={`chat-bubble text-white ${chatColor}`}>
-                That is never been done in the history of the Jedi. It is insulting!
-            </div>
-        </div> */}
     </div>
   )
 }
