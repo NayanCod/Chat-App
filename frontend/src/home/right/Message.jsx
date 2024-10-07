@@ -12,9 +12,9 @@ const Message = ({message}) => {
   })
   return (
     <div className="p-4">
-        <div className={`chat ${chatName}`}>
+        <div className={`chat ${chatName} flex flex-col gap-1`}>
             <div className={`chat-bubble text-white ${chatColor}`}>{message.message}</div>
-            <div>{formattedTime}</div>
+            <div className="text-xs">{formattedTime}</div>
         </div>
     </div>
   )
