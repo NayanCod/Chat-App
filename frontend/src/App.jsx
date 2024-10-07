@@ -6,7 +6,7 @@ import Logout from "./home/left1/Logout";
 import Right from "./home/right/Right";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
-import Loading from "./components/Loading.jsx";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const { authUser, setAuthUser } = useAuth();
@@ -31,6 +31,7 @@ function App() {
         <Route path="/signup" element={authUser ? <Navigate to={"/"} /> : <Signup/>} />
         <Route path="/login" element={authUser ? <Navigate to={"/"} /> : <Login/>} />
       </Routes>
+      <Toaster/>
       {/* <Loading /> */}
     </>
   );

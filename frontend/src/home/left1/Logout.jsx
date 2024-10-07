@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { TbLogout2 } from "react-icons/tb";
 import Cookies from "js-cookie"
+import toast from "react-hot-toast";
 
 const Logout = () => {
   const [loading, setLoading] = useState(false);
@@ -14,9 +15,10 @@ const Logout = () => {
       localStorage.removeItem("messanger");
       Cookies.remove("jwt");
       setLoading(false);
-      alert("logout successfully");
+      toast.success("logout successfully");
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.message);
     }
   }
   return (

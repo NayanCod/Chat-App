@@ -4,9 +4,11 @@ import useGetMessage from "../../context/useGetMessage.js";
 import Message from "./Message";
 import Loading from "../../components/Loading.jsx";
 import { useEffect, useRef } from "react";
+import useGetSocketMessage from "../../context/useGetSocketMessage.jsx";
 
 const Messages = () => {
   const { messages, loading } = useGetMessage();
+  useGetSocketMessage();
   console.log(messages);
   const lastMessageRef = useRef();
   useEffect(() => {
@@ -22,7 +24,7 @@ const Messages = () => {
       ) : (
         messages.length > 0 &&
         messages.map((message) => (
-          <div key={message._id}>
+          <div key={message._id} ref={lastMessageRef}>
             <Message message={message} />
           </div>
         ))
