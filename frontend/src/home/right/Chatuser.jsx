@@ -7,7 +7,7 @@ const Chatuser = () => {
   const { selectedConversation } = useConversation();
   const {socket, onlineUsers} = useSocketContext();
   const getOnlineUserStatus = (userId) => {
-    return onlineUsers.includes(userId) ? 'online' : 'offline';
+    return onlineUsers.includes(userId) ? 'Online' : 'Offline';
   }
   // const isOnline = onlineUsers.includes(user._id);
   return (
