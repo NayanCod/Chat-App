@@ -22,12 +22,12 @@ const Logout = () => {
     }
   }
   return (
-    <div className='w-[4%] bg-slate-950 text-gray-300 flex flex-col justify-end'>
+    <div className='w-[3.5%] bg-slate-950 text-gray-300 flex flex-col justify-end'>
         <div className='p-3'>      
         <form>
             <div className='flex space-x-3'>
                 <button onClick={handleLogout}>
-                    <TbLogout2 className='text-5xl p-2 hover:bg-gray-600 rounded-lg duration-300'/>
+                    <TbLogout2 className='text-5xl p-2 hover:text-gray-600 rounded-lg duration-100' title="logout"/>
                 </button>
             </div>
         </form>
