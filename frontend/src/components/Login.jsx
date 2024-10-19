@@ -22,7 +22,7 @@ const Login = () => {
             const res = await axios.post("/api/user/login", userInfo);
             console.log(res);
             if(res.data){
-                toast.success("Successfully logged in!");
+                toast.success("Successfully logged in");
             }
             localStorage.setItem("messanger", JSON.stringify(res.data));
             setAuthUser(res.data);
